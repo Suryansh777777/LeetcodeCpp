@@ -12,21 +12,15 @@ public:
                 if(st1.find(matrix[i][j])!= st1.end()){
                     return false;
                 }
-                st1.insert(matrix[i][j]);  
-            }
-            st1.clear();
-        }
-        for(int j = 0 ; j < n ; j++){
-            for(int i = 0 ; i < n ; i++){
-                if(matrix[i][j] == '.') continue;
-                if(st2.find(matrix[i][j])!= st2.end()){
+                else{st1.insert(matrix[i][j]);  }
+                if(st2.find(matrix[j][i])!= st2.end()){
                     return false;
                 }
-                st2.insert(matrix[i][j]);  
+                else{st2.insert(matrix[j][i]);  }
             }
-         st2.clear();
+        st1.clear();
+        st2.clear();
         }
-        
         return true;
     }
 };
